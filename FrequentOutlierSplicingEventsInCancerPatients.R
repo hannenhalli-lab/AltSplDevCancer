@@ -248,16 +248,16 @@ for (fileIndex in 1:nrow(tissueCancerFile)) {
 		
 		colNames <- c("Exon", "normalMean", "cancerMean", "normalDeviation", "eventType")
 		
-		overallDiffPSI <- sapply(1:nrow(cancerPSI), OutlierDetectionFunction, condition1 = normalPSI, condition2 = cancerPSI, allowedNA = 50, numberOfSDs = 3, normalCutOff = 5, cancerCutOff = 20) %>% 
+		overallDiffPSI <- sapply(1:nrow(cancerPSI), OutlierDetectionFunction, condition1 = normalPSI, condition2 = cancerPSI, allowedNA = 50, numberOfSDs = 2, normalCutOff = 5, cancerCutOff = 20) %>% 
 				outlierParseFunction(file = ., nRows = nrow(cancerPSI), nCols = 5, colNames = colNames, cancerStage = "Overall")
 				
 		
 		if (stageInformation == "defined")	{
-			earlyDiffPSI <- sapply(1:nrow(earlyPSI), OutlierDetectionFunction, condition1 = normalPSI, condition2 = earlyPSI, allowedNA = 50, numberOfSDs = 3, normalCutOff = 5, cancerCutOff = 20) %>% 
+			earlyDiffPSI <- sapply(1:nrow(earlyPSI), OutlierDetectionFunction, condition1 = normalPSI, condition2 = earlyPSI, allowedNA = 50, numberOfSDs = 2, normalCutOff = 5, cancerCutOff = 20) %>% 
 					outlierParseFunction(file = ., nRows = nrow(earlyPSI), nCols = 5, colNames = colNames, cancerStage = "Early")
 				
 				
-			lateDiffPSI <- sapply(1:nrow(latePSI), OutlierDetectionFunction, condition1 = normalPSI, condition2 = latePSI, allowedNA = 50, numberOfSDs = 3, normalCutOff = 5, cancerCutOff = 20) %>% 
+			lateDiffPSI <- sapply(1:nrow(latePSI), OutlierDetectionFunction, condition1 = normalPSI, condition2 = latePSI, allowedNA = 50, numberOfSDs = 2, normalCutOff = 5, cancerCutOff = 20) %>% 
 					outlierParseFunction(file = ., nRows = nrow(latePSI), nCols = 5, colNames = colNames, cancerStage = "Late")	
 		}
 		
