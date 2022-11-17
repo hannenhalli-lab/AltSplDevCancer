@@ -58,6 +58,9 @@ for (devTissue in usedTissues) {
 	
 	devFile <- glue("{pathToExpressionFile}Normal/Kallisto/development/Expression/KallistoTPMvaluesForTranscriptExpressionIn{devTissue}")
 	cancerExpression <- glue("{pathToExpressionFile}Cancer/Kallisto/TCGA/Expression/KallistoTPMvaluesForTranscriptExpressionIn{cancerType[1]}")
+	if (devTissue == "Kidney") {
+		cancerExpression <- glue("{pathToExpressionFile}Cancer/Kallisto/TCGA/Expression/KallistoTPMvaluesForTranscriptExpressionIn{cancerType[2]}")
+	}
 	normalExpression <- glue("{pathToExpressionFile}Cancer/Kallisto/Gtex/Expression/KallistoTPMvaluesForTranscriptExpressionIn{normalTissue[1]}")
 
 
